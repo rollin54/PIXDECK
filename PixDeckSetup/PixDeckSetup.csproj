@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>PixDeckHub_Setup</AssemblyName>
+    <RootNamespace>PixDeckSetup</RootNamespace>
+    <ApplicationManifest>..\PixDeckHub\app.manifest</ApplicationManifest>
+    <ApplicationIcon>..\PixDeckHub\app.ico</ApplicationIcon>
+    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+    <Version>3.2.0</Version>
+    <Product>PixDeck Hub - Instalador</Product>
+    <Company>PixDeck</Company>
+    <Copyright>PixDeck 2026</Copyright>
+    <SatelliteResourceLanguages>es</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- mismo estilo visual que el Hub -->
+    <Compile Include="..\PixDeckHub\Ui.cs" Link="Ui.cs" />
+    <!-- el programa completo, comprimido por build_installer.ps1 -->
+    <EmbeddedResource Include="payload.zip" LogicalName="payload.zip" Condition="Exists('payload.zip')" />
+  </ItemGroup>
+
+</Project>

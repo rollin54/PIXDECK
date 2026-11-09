@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>PixDeckHub</AssemblyName>
+    <RootNamespace>PixDeckHub</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <Company>PixDeck</Company>
+    <Copyright>PixDeck 2026</Copyright>
+    <Version>3.2.0</Version>
+    <Product>PixDeck Hub</Product>
+    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+    <SatelliteResourceLanguages>es;en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Con las fuentes propias (GfxFontData.cs) no se compila el reemplazo vacio -->
+    <Compile Remove="GfxFontStub.cs" Condition="Exists('GfxFontData.cs')" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LibreHardwareMonitorLib" Version="0.9.6" />
+    <PackageReference Include="System.IO.Ports" Version="10.0.3" />
+  </ItemGroup>
+
+</Project>

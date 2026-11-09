@@ -1,0 +1,40 @@
+{
+  // Tema de ejemplo para "Subir tema..." en PixDeck Hub.
+  // Pantalla de 320x240. Colores #RRGGBB. Ver LEEME.md para todos los tipos y campos.
+  "name": "NEON MINIMAL",
+  "author": "PixDeck",
+  "description": "Ejemplo subible: dos anillos, barras y grafica",
+  "background": "#05060C",
+  "widgets": [
+    { "type": "rect", "x": 0, "y": 0, "w": 320, "h": 26, "color": "#10122A" },
+    { "type": "line", "x": 0, "y": 26, "x2": 320, "y2": 26, "color": "#262E4A" },
+    { "type": "text", "x": 10, "y": 13, "text": "{name}", "font": "small", "size": 2, "align": "ML", "color": "#B060FF" },
+    { "type": "text", "x": 312, "y": 13, "text": "{time}", "font": "small", "align": "MR", "color": "#E8ECF8" },
+
+    { "type": "arc", "x": 80, "y": 112, "r": 62, "thickness": 10, "start": 45, "end": 315,
+      "source": "cpu_load", "max": 100, "color": "#FF9614", "track": "#1E243A" },
+    { "type": "value", "x": 80, "y": 104, "source": "cpu_temp", "font": "big", "align": "MC",
+      "color": "#FFFFFF", "tempColor": true },
+    { "type": "text", "x": 80, "y": 132, "text": "{cpu}", "font": "glcd", "align": "MC", "color": "#FF9614" },
+    { "type": "value", "x": 80, "y": 152, "source": "cpu_load", "suffix": "%", "font": "small", "align": "MC", "color": "#8A93B0" },
+
+    { "type": "arc", "x": 240, "y": 112, "r": 62, "thickness": 10, "start": 45, "end": 315,
+      "source": "gpu_load", "max": 100, "color": "#5AFF78", "track": "#1E243A" },
+    { "type": "value", "x": 240, "y": 104, "source": "gpu_temp", "font": "big", "align": "MC",
+      "color": "#FFFFFF", "tempColor": true },
+    { "type": "text", "x": 240, "y": 132, "text": "{gpu}", "font": "glcd", "align": "MC", "color": "#5AFF78" },
+    { "type": "value", "x": 240, "y": 152, "source": "gpu_load", "suffix": "%", "font": "small", "align": "MC", "color": "#8A93B0" },
+
+    { "type": "text", "x": 20, "y": 186, "text": "RAM", "font": "glcd", "color": "#00CDFF" },
+    { "type": "value", "x": 150, "y": 186, "source": "ram_used", "decimals": 1, "suffix": " GB", "font": "glcd", "align": "TR", "color": "#E8ECF8" },
+    { "type": "bar", "x": 20, "y": 197, "w": 130, "h": 9, "source": "ram_load", "max": 100, "color": "#00CDFF", "track": "#1E243A" },
+
+    { "type": "text", "x": 170, "y": 186, "text": "VRAM", "font": "glcd", "color": "#B964FF" },
+    { "type": "value", "x": 300, "y": 186, "source": "vram_used", "suffix": " MB", "font": "glcd", "align": "TR", "color": "#E8ECF8" },
+    { "type": "bar", "x": 170, "y": 197, "w": 130, "h": 9, "source": "vram_load", "max": 100, "color": "#B964FF", "track": "#1E243A" },
+
+    { "type": "rect", "x": 20, "y": 214, "w": 280, "h": 22, "radius": 4, "color": "#0C0F1C" },
+    { "type": "graph", "x": 22, "y": 216, "w": 276, "h": 18, "source": "cpu_temp", "min": 20, "max": 100, "color": "#FF9614" },
+    { "type": "graph", "x": 22, "y": 216, "w": 276, "h": 18, "source": "gpu_temp", "min": 20, "max": 100, "color": "#5AFF78" }
+  ]
+}

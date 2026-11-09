@@ -1,0 +1,10 @@
+bin/
+obj/
+dist/
+PixDeckSetup/payload.zip
+*.user
+.vs/
+# fuentes propias (no se distribuyen hasta confirmar su licencia)
+PIXDECK_V3/techno_hideo_bold20pt7b.h
+PIXDECK_V3/HoryzenHeadline_Aug20257pt7b.h
+PixDeckHub/GfxFontData.cs
