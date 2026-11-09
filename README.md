@@ -56,12 +56,29 @@ Muestra en tiempo real la temperatura y el uso de CPU y GPU, la RAM y la VRAM, c
 1. Abrí [ESP Web Tools](https://espressif.github.io/esptool-js/) en Chrome o Edge y conectá el ESP32.
 2. Cargá `PIXDECK_firmware_x.x.x_ESP32.bin` en la dirección **0x0** y dale *Program*.
 
-El `.bin` usa exactamente los pines de la tabla de arriba.
+El `.bin` ya trae la configuración de pantalla de la tabla de arriba: no hace falta tocar ninguna librería.
 
 **Opción B: IDE de Arduino**
-1. Instalá el core **esp32** (3.x) y la librería **TFT_eSPI**.
-2. En `TFT_eSPI/User_Setup.h` usá `ILI9341_DRIVER` y los pines de la tabla. Activá `LOAD_GFXFF` y `SMOOTH_FONT`.
-3. Abrí `PIXDECK_V3/PIXDECK_V3.ino`, elegí **ESP32 Dev Module** y subilo.
+1. Instalá el core **esp32** (3.x) desde el Gestor de placas y la librería **TFT_eSPI** (de Bodmer) desde el Gestor de librerías.
+2. ⚠️ **Configurá la pantalla. Este paso es obligatorio.** TFT_eSPI viene de fábrica con los pines de un **ESP8266 (NodeMCU)**; si no lo cambiás, la pantalla queda en blanco.
+   - Andá a la carpeta de la librería: `Documentos\Arduino\libraries\TFT_eSPI\`.
+   - Hacé una copia de respaldo de `User_Setup.h` (por ejemplo, `User_Setup_original.h`).
+   - Reemplazalo por **[docs/User_Setup.h](docs/User_Setup.h)** de este repositorio, con el mismo nombre: `User_Setup.h`.
+   - Ese archivo trae activado lo siguiente:
+
+     | Opción | Valor |
+     |---|---|
+     | Driver | `ILI9341_DRIVER` |
+     | Pines ESP32 | MISO 19, MOSI 23, SCLK 18, CS 5, DC 2, RST 4 |
+     | Pines NodeMCU (`PIN_D8`, `PIN_D3`…) | **desactivados** |
+     | Fuentes | GLCD, 2, 4, 6, 7, 8, FreeFonts (`LOAD_GFXFF`) y `SMOOTH_FONT` |
+     | Velocidad SPI | 27 MHz |
+     | Touch | no se usa |
+
+   - Si preferís editar tu archivo a mano: comentá las líneas de NodeMCU (`TFT_CS PIN_D8`, `TFT_DC PIN_D3`, `TFT_RST PIN_D4`) y agregá los pines de ESP32 de la tabla.
+   - Cada vez que actualices la librería TFT_eSPI, se pisa `User_Setup.h`: volvé a copiarlo.
+3. Abrí `PIXDECK_V3/PIXDECK_V3.ino`, elegí **ESP32 Dev Module** y el puerto COM, y subilo.
+4. Al compilar puede aparecer `TOUCH_CS pin not defined`. Es solo un aviso: PIXDECK no usa touch.
 
 ## 💻 Programa para Windows
 

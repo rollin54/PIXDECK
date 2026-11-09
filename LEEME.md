@@ -1,13 +1,20 @@
 # PIXDECK V3 · por USB (sin WiFi)
 
-- `PIXDECK_V3/` es el firmware del ESP32 (ILI9341, TFT_eSPI con tu mismo User_Setup).
+- `PIXDECK_V3/` es el firmware del ESP32 (pantalla ILI9341 con la librería TFT_eSPI).
 - `PixDeckHub/` es el programa de Windows (C# .NET 8 + LibreHardwareMonitorLib).
+- `docs/User_Setup.h` es la configuración de TFT_eSPI que usa PIXDECK (pines del ESP32).
 
 ## 1. Subir el firmware
-1. Abre `PIXDECK_V3/PIXDECK_V3.ino` en el IDE de Arduino.
-2. Elige la placa **ESP32 Dev Module** (core esp32 3.x) y súbelo como siempre.
-3. El buzzer sigue en GPIO 25. El botón **BOOT** de la placa cambia de tema.
-4. **Cierra el Monitor Serie** del IDE: el puerto COM solo lo puede usar un programa a la vez.
+1. **Configura TFT_eSPI (obligatorio).** Reemplaza `Documentos\Arduino\libraries\TFT_eSPI\User_Setup.h` por `docs/User_Setup.h`; antes guarda una copia del original. La librería viene de fábrica con pines de ESP8266 (NodeMCU) y con ellos la pantalla queda en blanco.
+   - Pines del archivo: MISO 19, MOSI 23, SCLK 18, CS 5, DC 2, RST 4.
+   - Driver ILI9341 a 27 MHz, sin touch.
+   - Si actualizas la librería, vuelve a copiarlo.
+2. Abre `PIXDECK_V3/PIXDECK_V3.ino` en el IDE de Arduino.
+3. Elige la placa **ESP32 Dev Module** (core esp32 3.x) y súbelo. El aviso `TOUCH_CS pin not defined` es normal.
+4. El buzzer va en GPIO 25. El botón **BOOT** de la placa cambia de tema.
+5. **Cierra el Monitor Serie** del IDE: el puerto COM solo lo puede usar un programa a la vez.
+
+Sin IDE: usa `PIXDECK_firmware_x.x.x_ESP32.bin` del Release en https://espressif.github.io/esptool-js/, en la dirección **0x0**. Ya trae esta configuración.
 
 ## 2. Programa de la PC
 
