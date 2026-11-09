@@ -98,8 +98,7 @@ Hacelos con el **Creador de temas** del programa, o a mano en JSON. El formato e
 
 Si te gustó y querés que siga sumando temas y funciones:
 
-- 🇦🇷 Desde Argentina: **[Cafecito](https://cafecito.app/rollin54)**
-- 🌎 Desde otros países: **[PayPal](https://www.paypal.com/donate?business=rollin54%40gmail.com&currency_code=USD)**
+- ☕ **[Invitame un Cafecito](https://cafecito.app/rollin54)**
 
 ¡Gracias! 💜
 
