@@ -99,7 +99,7 @@ Hacelos con el **Creador de temas** del programa, o a mano en JSON. El formato e
 Si te gustó y querés que siga sumando temas y funciones:
 
 - 🇦🇷 Desde Argentina: **[Invitame un Cafecito](https://cafecito.app/rollin54)**
-- 🌎 Desde otros países: **PayPal** › *Enviar dinero* a **rollin54@gmail.com**
+- 🌎 Desde otros países: **[PayPal @rolls54](https://paypal.me/rolls54)**
 
 ¡Gracias! 💜
 
