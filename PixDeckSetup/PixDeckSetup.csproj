@@ -11,7 +11,7 @@
     <ApplicationManifest>..\PixDeckHub\app.manifest</ApplicationManifest>
     <ApplicationIcon>..\PixDeckHub\app.ico</ApplicationIcon>
     <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
-    <Version>3.2.0</Version>
+    <Version>3.2.1</Version>
     <Product>PixDeck Hub - Instalador</Product>
     <Company>PixDeck</Company>
     <Copyright>PixDeck 2026</Copyright>

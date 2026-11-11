@@ -89,9 +89,10 @@ static void classic() {
   if (isnan(ST.v[V_RAM_TOT])) snprintf(c, sizeof c, "TOTAL -- GB"); else snprintf(c, sizeof c, "TOTAL %d GB", (int)lroundf(ST.v[V_RAM_TOT]));
   barCard(4, 147, "RAM", RAMC, A[V_RAM_L], ST.v[V_RAM_L], v, "GB", c);
 
-  snprintf(v, sizeof v, "%s", fmt(ST.v[V_VRAM_USED]));
-  if (isnan(ST.v[V_VRAM_TOT])) snprintf(c, sizeof c, "TOTAL -- MB"); else snprintf(c, sizeof c, "TOTAL %d MB", (int)lroundf(ST.v[V_VRAM_TOT]));
-  barCard(162, 147, "VRAM", VRAMC, vramPctA(), vramPct(), v, "MB", c);
+  // VRAM llega en MB: se muestra en GB para que entren tarjetas de 12, 16, 24 GB o mas
+  if (isnan(ST.v[V_VRAM_USED])) snprintf(v, sizeof v, "--.-"); else snprintf(v, sizeof v, "%.1f", ST.v[V_VRAM_USED] / 1024.0f);
+  if (isnan(ST.v[V_VRAM_TOT])) snprintf(c, sizeof c, "TOTAL -- GB"); else snprintf(c, sizeof c, "TOTAL %d GB", (int)lroundf(ST.v[V_VRAM_TOT] / 1024.0f));
+  barCard(162, 147, "VRAM", VRAMC, vramPctA(), vramPct(), v, "GB", c);
 }
 
 // ---------------- 7: RINGS ----------------

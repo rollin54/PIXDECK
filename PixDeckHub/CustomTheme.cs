@@ -54,7 +54,7 @@ public sealed class CustomTheme
     {
         "cpu_temp", "cpu_load", "cpu_clock", "cpu_power", "gpu_temp", "gpu_load", "gpu_clock", "gpu_power",
         "ram_used", "ram_total", "ram_load", "vram_used", "vram_total", "extra1", "extra2", "extra3", "extra4",
-        "vram_load",
+        "vram_load", "vram_used_gb", "vram_total_gb",
     };
     // ---------------- fuentes ----------------
     // Una entrada por estilo; el tamaño se elige con "size" (escala 1..N).
@@ -397,6 +397,7 @@ public sealed class CustomTheme
     {
         int i = SourceIndex(src);
         if (i == 17) return value(11) is float u && value(12) is float tot && tot > 0 ? u * 100 / tot : null;
+        if (i is 18 or 19) return value(i == 18 ? 11 : 12) is float mb ? mb / 1024f : null;   // VRAM en GB
         return i >= 0 ? value(i) : null;
     }
 
@@ -442,6 +443,7 @@ public sealed class CustomTheme
         {
             int i = SourceIndex(src);
             if (i == 17) return value(11) is float u && value(12) is float tot && tot > 0 ? u * 100 / tot : null;
+            if (i is 18 or 19) return value(i == 18 ? 11 : 12) is float mb ? mb / 1024f : null;   // VRAM en GB
             return i >= 0 ? value(i) : null;
         }
         Color TempCol(float? v, Color ok) => v is float f ? f >= alert ? Ui.Hot : f >= warn ? Ui.Warn : ok : Ui.Dim;

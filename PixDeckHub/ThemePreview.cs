@@ -124,7 +124,7 @@ public static class ThemePreview
             Str(g, cap, 10, Ui.Dim, x + 10, 217);
         }
         BarC(4, "RAM", PxRam, s.RamL, (32 * s.RamL / 100).ToString("0.0", System.Globalization.CultureInfo.InvariantCulture), "GB", "TOTAL 32 GB");
-        BarC(162, "VRAM", PxVram, s.VramL, (8192 * s.VramL / 100).ToString("0"), "MB", "TOTAL 8192 MB");
+        BarC(162, "VRAM", PxVram, s.VramL, (8 * s.VramL / 100).ToString("0.0", System.Globalization.CultureInfo.InvariantCulture), "GB", "TOTAL 8 GB");
     }
 
     static void PixRings(Graphics g, Sample s, float t)

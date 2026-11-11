@@ -51,7 +51,7 @@ public static class ThemeTemplates
                     w.Add(Txt(x + 77, 109, "%", "small", "MC", Dim));
                     w.Add(Val(x + 77, 128, temp, "sans", "MC", "#46E182", " C", 0, true));
                 }
-                foreach (var (x, label, acc, used, load, suffix, dec) in new[] { (4, "RAM", Ram, "ram_used", "ram_load", " GB", 1), (162, "VRAM", Vram, "vram_used", "vram_load", " MB", 0) })
+                foreach (var (x, label, acc, used, load, suffix, dec) in new[] { (4, "RAM", Ram, "ram_used", "ram_load", " GB", 1), (162, "VRAM", Vram, "vram_used_gb", "vram_load", " GB", 1) })
                 {
                     w.Add(Rect(x, 147, 154, 89, Border, 9));
                     w.Add(Rect(x + 1, 148, 152, 87, Card, 8));
@@ -80,7 +80,7 @@ public static class ThemeTemplates
                 w.Add(Val(150, 186, "ram_used", "glcd", "TR", Text, " GB", 1));
                 w.Add(Bar(20, 197, 130, 9, "ram_load", Ram));
                 w.Add(Txt(170, 186, "VRAM", "glcd", "TL", Vram));
-                w.Add(Val(300, 186, "vram_used", "glcd", "TR", Text, " MB"));
+                w.Add(Val(300, 186, "vram_used_gb", "glcd", "TR", Text, " GB", 1));
                 w.Add(Bar(170, 197, 130, 9, "vram_load", Vram));
                 w.Add(Rect(20, 214, 280, 22, "#0C0F1C", 4));
                 w.Add(Graph(22, 216, 276, 18, "cpu_temp", Cpu));

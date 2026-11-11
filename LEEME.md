@@ -79,7 +79,7 @@ El archivo es un JSON con `name`, `author`, `description`, `background` y `widge
   - **`glcd`:** pixel 6 px, `size` 1-4.
   - **Nombres de versiones anteriores** (`small`, `big`, `sans18b`...) se convierten solos al abrir el archivo.
 - **`align`:** `TL` `TC` `TR` `ML` `MC` `MR` `BL` `BC` `BR`.
-- **`source`:** `cpu_temp` `cpu_load` `cpu_clock` `cpu_power` `gpu_temp` `gpu_load` `gpu_clock` `gpu_power` `ram_used` `ram_total` `ram_load` `vram_used` `vram_total` `vram_load` `extra1`..`extra4`.
+- **`source`:** `cpu_temp` `cpu_load` `cpu_clock` `cpu_power` `gpu_temp` `gpu_load` `gpu_clock` `gpu_power` `ram_used` `ram_total` `ram_load` `vram_used` `vram_total` (MB), `vram_used_gb` `vram_total_gb` (GB), `vram_load` `extra1`..`extra4`.
 
 ## Si algo falla
 - **Se queda en "ESPERANDO PC":** revisa que el programa esté abierto y que el Monitor Serie del IDE esté cerrado. En Settings, General, prueba a elegir el puerto COM a mano.

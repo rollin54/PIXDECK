@@ -17,7 +17,7 @@
 // Colores en RGB565 (decimal). fuente: 0 GLCD, 1-6 nombres viejos (Sans/Mono/Serif negrita),
 //   10-57 las 48 FreeFonts (ver FREEFONTS), 60-64 fuentes numeradas 2/4/6/7/8,
 //   70 Horyzen, 71 Techno. "tam" = multiplicador (el Hub elige punto + multiplicador segun la escala).
-// alin: 0 TL 1 TC 2 TR 3 ML 4 MC 5 MR 6 BL 7 BC 8 BR. dato: indices V_* de link.h, 17 = VRAM %.
+// alin: 0 TL 1 TC 2 TR 3 ML 4 MC 5 MR 6 BL 7 BC 8 BR. dato: indices V_* de link.h, 17 = VRAM %, 18/19 = VRAM usada/total en GB.
 // ======================================================================================
 
 namespace ct {
@@ -80,6 +80,10 @@ static void load(int slot) {
 static float src(int s, bool anim) {
   if (s >= 0 && s < V_COUNT) return (anim && !isnan(A[s])) ? A[s] : ST.v[s];
   if (s == 17) return anim ? vramPctA() : vramPct();
+  if (s == 18 || s == 19) {   // VRAM usada / total en GB (llega en MB)
+    float mb = s == 18 ? ((anim && !isnan(A[V_VRAM_USED])) ? A[V_VRAM_USED] : ST.v[V_VRAM_USED]) : ST.v[V_VRAM_TOT];
+    return isnan(mb) ? NAN : mb / 1024.0f;
+  }
   return NAN;
 }
 static const Hist* hist(int s) {

@@ -362,7 +362,7 @@ public sealed class ThemeEditorForm : DarkForm
         ["cpu_power"] = "CPU · Potencia W", ["gpu_temp"] = "GPU · Temperatura", ["gpu_load"] = "GPU · Uso %",
         ["gpu_clock"] = "GPU · Frecuencia MHz", ["gpu_power"] = "GPU · Potencia W", ["ram_used"] = "RAM · Usada GB",
         ["ram_total"] = "RAM · Total GB", ["ram_load"] = "RAM · Uso %", ["vram_used"] = "VRAM · Usada MB",
-        ["vram_total"] = "VRAM · Total MB", ["vram_load"] = "VRAM · Uso %", ["extra1"] = "Extra 1", ["extra2"] = "Extra 2",
+        ["vram_total"] = "VRAM · Total MB", ["vram_load"] = "VRAM · Uso %", ["vram_used_gb"] = "VRAM · Usada GB", ["vram_total_gb"] = "VRAM · Total GB", ["extra1"] = "Extra 1", ["extra2"] = "Extra 2",
         ["extra3"] = "Extra 3", ["extra4"] = "Extra 4",
     };
     static string SourceName(string s) => SourceNames.GetValueOrDefault(s.ToLowerInvariant(), s);
